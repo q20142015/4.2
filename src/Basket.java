@@ -5,24 +5,26 @@ public class Basket {
     private int totalPrice = 0;
     private int limit;
 
-   private double  totalWeight=0;
+    private double totalWeight = 0;
+
     public Basket() {
         increaseCount(1);
         items = "Список товаров:";
         this.limit = 1000000;
     }
 
-    public void add(String name, int price, int count, double weight)    {
-        boolean error=add(name, price, count);
+    public void add(String name, int price, int count, double weight) {
+        boolean error = add(name, price, count);
         if (error) {
             return;
         }
-        totalWeight=totalWeight+weight;
+        totalWeight = totalWeight + weight;
     }
-    public double getTotalWeight()
-    {
+
+    public double getTotalWeight() {
         return totalWeight;
     }
+
     public Basket(int limit) {
         this();
         this.limit = limit;
@@ -48,7 +50,7 @@ public class Basket {
 
     public boolean add(String name, int price, int count) {
         boolean error = false;
-        boolean test=contains(name);
+        boolean test = contains(name);
         if (contains(name)) {
             error = true;
         }
@@ -63,7 +65,7 @@ public class Basket {
         }
 
         items = items + "\n" + name + " - " +
-            count + " шт. - " + price;
+                count + " шт. - " + price;
         totalPrice = totalPrice + count * price;
         return error;
     }
